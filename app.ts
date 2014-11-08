@@ -1,5 +1,5 @@
 /// <EXTERNAL REFERENCES>
-/// <reference path="src/OX.ts" />
+/// <reference path="./node_modules/ox/build/OX.d.ts" />
 
 /// <CONFIG REFERENCES>
 /// <reference path="./application/config/DatabaseConfig.ts" />

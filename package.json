@@ -1,12 +1,13 @@
 {
-  "name": "Oryx",
+  "name": "sparky",
   "version": "1.0.0",
-  "title": "Oryx Framework",
+  "title": "Basic app for testing ox MVC",
   "author": "Muhammad Ahmed",
-  "description": "Starting of new era",
+  "description": "Basic typescript app using ox framework",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "prestart": "grunt",
+    "start": "node ./build/app.js"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -16,10 +17,10 @@
     "grunt": "0.4.5",
     "grunt-contrib-clean": "0.6.0",
     "grunt-contrib-copy": "0.7.0",
+    "grunt-file-append": "0.0.5",
+    "grunt-subgrunt": "0.4.1",
     "grunt-typescript": "0.3.8",
     "ox": "git+ssh://git@github.com:mahmed8003/ox.git"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
