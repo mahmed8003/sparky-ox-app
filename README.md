@@ -1,0 +1,1 @@
+Sparky is a test app for OX MVC framework using typescript
