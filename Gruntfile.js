@@ -18,17 +18,6 @@ module.exports = function (grunt) {
             }
         },
         typescript: {
-            compile_framework: {
-                src: ['./node_modules/ox/src/**/*.ts'],
-                dest: './node_modules/ox/build/OX.js',
-                options: {
-                    module: 'commonjs', //or commonjs
-                    target: 'es5', //or es3
-                    //basePath: './',
-                    sourceMap: false,
-                    declaration: true
-                }
-            },
             compile_app: {
                 src: ['./app.ts', './application/**/*.ts'],
                 dest: './build/app.js',
@@ -42,17 +31,10 @@ module.exports = function (grunt) {
             }
         },
         file_append: {
-            export_framework: {
-                files: {
-                    './build/OX.js': {
-                        append: "\nmodule.exports = OX;"
-                    }
-                }
-            },
             import_framework: {
                 files: {
                     'build/app.js': {
-                        prepend: "var OX = require('./OX');\n\n"
+                        prepend: "var OX = require('OX');\n\n"
                     }
                 }
             }
@@ -71,5 +53,5 @@ module.exports = function (grunt) {
         [ 'typescript:compile_app', 'file_append:import_framework']
     );
 
-    grunt.registerTask('default', ['build_framework', 'build_app']);
+    grunt.registerTask('default', ['build_app']);
 }
