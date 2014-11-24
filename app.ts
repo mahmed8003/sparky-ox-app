@@ -5,6 +5,7 @@
 /// <reference path="./application/config/DatabaseConfig.ts" />
 /// <reference path="./application/config/ExpressConfig.ts" />
 /// <reference path="./application/config/GlobalFiltersConfig.ts" />
+/// <reference path="./application/config/LoggerConfig.ts" />
 /// <reference path="./application/config/RoutesConfig.ts" />
 
 
@@ -34,6 +35,7 @@ module Sparky {
 
 
     export var app:OX.Application = new OX.Application(rootPath, env, port);
+    app.setLoggerConfig(new LoggerConfig());
     app.setDatabaseConfig(new DatabaseConfig());
     app.setExpressConfig(new ExpressConfig());
     app.setGlobalFiltersConfig(new GlobalFiltersConfig());

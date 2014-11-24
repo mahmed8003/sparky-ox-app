@@ -15,6 +15,7 @@ module Sparky {
         }
 
         public index(req:OX.Request, res:OX.Response){
+            OX.Log.info('I am logy logy');
             res.send('hello i am here now');
         }
     }
