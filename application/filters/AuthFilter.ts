@@ -15,6 +15,9 @@ module Sparky {
         before(context:OX.AFContext): void {
             console.log('I am before AuthFilter action filter baby');
             this.i += 8;
+
+            var userModel:UserModel = <UserModel>this.getModel(UserModel);
+            userModel.doLogin();
             context.next();
         }
 

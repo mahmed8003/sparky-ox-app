@@ -15,6 +15,8 @@
 /// <reference path="./application/filters/AuthFilter.ts" />
 
 /// <MODEL REFERENCES>
+/// <reference path="./application/models/UserModel.ts" />
+/// <reference path="./application/models/PostModel.ts" />
 
 /// <CONTROLLER REFERENCES>
 /// <reference path="./application/controllers/HomeController.ts" />
@@ -30,8 +32,8 @@ module Sparky {
     program.parse(process.argv);
 
     var rootPath:string = __dirname;
-    var env:string = program.env;
-    var port:number = program.port;
+    var env:string = process.env.NODE_ENV || program.env;
+    var port:number = process.env.PORT || program.port;
 
 
     export var app:OX.Application = new OX.Application(rootPath, env, port);
@@ -40,6 +42,9 @@ module Sparky {
     app.setExpressConfig(new ExpressConfig());
     app.setGlobalFiltersConfig(new GlobalFiltersConfig());
     app.setRoutesConfig(new RoutesConfig());
+    // add models here, otherwise they will not be accessible
+    app.addModel(UserModel);
+    app.addModel(PostModel);
     app.giddup();
 
 }

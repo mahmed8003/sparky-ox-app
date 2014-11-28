@@ -6,34 +6,34 @@ module Sparky {
 
         public config(loggerInfo:OX.EnvLoggerInfo):void {
             loggerInfo.development = {
-                name: 'Sparky',
-                streamsInfo: [
-                    {
-                        type: OX.LoggerStreamType.STREAM,
-                        level: OX.LoggerLevel.INFO
-                    }
-                ]
+                transports: [new OX.ConsoleTransport({
+                    level: 'debug',
+                    handleExceptions: true,
+                    json: false,
+                    colorize: true
+                })],
+                exitOnError: true
             };
 
             loggerInfo.test = {
-                name: 'Sparky',
-                streamsInfo: [
-                    {
-                        type: OX.LoggerStreamType.STREAM,
-                        level: OX.LoggerLevel.INFO
-                    }
-                ]
+                transports: [new OX.ConsoleTransport({
+                    level: 'debug',
+                    handleExceptions: true,
+                    json: false,
+                    colorize: true
+                })],
+                exitOnError: true
             };
 
             loggerInfo.production = {
-                name: 'Sparky',
-                streamsInfo: [
-                    {
-                        type: OX.LoggerStreamType.STREAM,
-                        level: OX.LoggerLevel.INFO
-                    }
-                ]
-            };
+                transports: [new OX.ConsoleTransport({
+                    level: 'debug',
+                    handleExceptions: true,
+                    json: false,
+                    colorize: true
+                })],
+                exitOnError: true
+            }
         }
     }
 }
