@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                     npmClean: true
                 },
                 projects: {
-                    'node_modules/ox': 'build_framework'
+                    'node_modules/an-ox': 'build_framework'
                 }
             }
         },
@@ -23,10 +23,14 @@ module.exports = function (grunt) {
                 dest: './build/app.js',
                 options: {
                     module: 'commonjs', //or commonjs
-                    target: 'es5', //or es3
-                    //basePath: './',
+                    target: 'es5', //or es
+                    basePath: './src',
                     sourceMap: false,
-                    declaration: true
+                    declaration: true,
+                    comments: false,
+                    references: [
+                        "./libraries/*.d.ts"
+                    ]
                 }
             }
         },
@@ -34,7 +38,7 @@ module.exports = function (grunt) {
             import_framework: {
                 files: {
                     'build/app.js': {
-                        prepend: "var OX = require('OX');\n\n"
+                        prepend: "var OX = require('an-ox');\n\n"
                     }
                 }
             }
@@ -48,10 +52,16 @@ module.exports = function (grunt) {
         [ 'subgrunt:ox_build']
     );
     grunt.registerTask(
-        'build_app',
+        'build',
         'Compiles all of app files and copy it to build directory.',
         [ 'typescript:compile_app', 'file_append:import_framework']
     );
 
-    grunt.registerTask('default', ['build_app']);
+    grunt.registerTask(
+        'build_app',
+        'Compiles all of the OX framework and app files, and copy it to build directory.',
+        [ 'build_framework', 'build']
+    );
+
+    grunt.registerTask('default', ['build']);
 }

@@ -1,5 +1,5 @@
 /// <EXTERNAL REFERENCES>
-/// <reference path="./node_modules/ox/build/OX.d.ts" />
+/// <reference path="./node_modules/an-ox/build/OX.d.ts" />
 
 /// <CONFIG REFERENCES>
 /// <reference path="./application/config/DatabaseConfig.ts" />
@@ -9,16 +9,16 @@
 /// <reference path="./application/config/RoutesConfig.ts" />
 
 
-/// <HELPER REFERENCES>
+/// <HELPERS REFERENCES>
 
 /// <FILTERS REFERENCES>
 /// <reference path="./application/filters/AuthFilter.ts" />
 
-/// <MODEL REFERENCES>
+/// <MODELS REFERENCES>
 /// <reference path="./application/models/UserModel.ts" />
 /// <reference path="./application/models/PostModel.ts" />
 
-/// <CONTROLLER REFERENCES>
+/// <CONTROLLERS REFERENCES>
 /// <reference path="./application/controllers/HomeController.ts" />
 
 module Sparky {
